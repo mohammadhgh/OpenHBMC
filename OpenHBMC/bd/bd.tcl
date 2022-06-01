@@ -67,10 +67,14 @@ proc propagate {cellpath otherInfo } {
 			continue                                                                                         
 		}			                                                                                         
 	                                                                                                         
-		set busif_name [get_property NAME $busif]		                                                     
+		set busif_name [get_property NAME $busif]		              
+		
+		puts "MHG says in 1"                                       
         
         set intf_s [get_bd_intf_pins $cellpath/${busif_name}]
         set source_intf [find_bd_objs -relation CONNECTED_TO -thru_hier [get_bd_intf_pins $cellpath/${busif_name}]]
+        
+        puts "MHG says in 2" 
         
         foreach tparam $axi_standard_param_list {
             set busif_param_name "C_${busif_name}_${tparam}"
@@ -80,21 +84,29 @@ proc propagate {cellpath otherInfo } {
             	set_property CONFIG.${busif_param_name} $val_on_cell_src_intf $cell_handle
             }
 		}
-        
+		
+		puts "MHG says in 3" 
+        puts "MHG says cellpath is: ${cellpath}"
         # Getting memory range from address editor to configure AXI address size
         set slave_seg [get_bd_addr_segs $cellpath/${busif_name}/Mem]
-        set master_seg [get_bd_addr_segs -quiet -of_object $slave_seg]
-        set range_list [get_property range  $master_seg]
+        puts "MHG says in 31 slave_seg: ${slave_seg}"
+        set master_seg [get_bd_addr_segs -verbose -of_objects $slave_seg]
+        puts "MHG says in 32 master_seg: ${master_seg}"
+#        set range_list [get_property range  $master_seg]
         
-        # When many masters are accessing the IP, there will be a list of range
-        # values in $range_list variable. That's why we need to select the max
-        # value to configure AXI address width.
-        set max_range [::tcl::mathfunc::max {*}$range_list]
-        puts "${cellpath} list of all memory ranges in Address Editor: ${range_list}"
-        puts "${cellpath} max memory range in Address Editor: ${max_range}"
+#        puts "MHG says in 4" 
         
-        set axi_addr_width [expr {int(log($max_range)/log(2))}]
-        puts "Configuring ${cellpath} AXI address size: ${axi_addr_width}"
-        set_property CONFIG.C_${busif_name}_ADDR_WIDTH $axi_addr_width $cell_handle
+#        # When many masters are accessing the IP, there will be a list of range
+#        # values in $range_list variable. That's why we need to select the max
+#        # value to configure AXI address width.
+#        set max_range [::tcl::mathfunc::max {*}$range_list]
+#        puts "${cellpath} list of all memory ranges in Address Editor: ${range_list}"
+#        puts "${cellpath} max memory range in Address Editor: ${max_range}"
+        
+#        puts "MHG says in 5" 
+        
+#        set axi_addr_width [expr {int(log($max_range)/log(2))}]
+#        puts "Configuring ${cellpath} AXI address size: ${axi_addr_width}"
+#        set_property CONFIG.C_${busif_name}_ADDR_WIDTH $axi_addr_width $cell_handle
 	}
 }

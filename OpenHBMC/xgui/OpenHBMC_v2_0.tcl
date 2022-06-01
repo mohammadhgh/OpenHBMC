@@ -164,7 +164,7 @@ OpenHBMC IP-core v2.0
   set License [ipgui::add_group $IPINST -name "License" -parent ${About}]
   ipgui::add_static_text $IPINST -name "Text1" -parent ${License} -text {
 Licensed under the Apache License, Version 2.0
-Copyright © 2020 - 2022, Vaagn Oganesyan, ovgn@protonmail.com
+Copyright Â© 2020 - 2022, Vaagn Oganesyan, ovgn@protonmail.com
 Repo: github.com/OVGN/OpenHBMC
 }
 
@@ -178,9 +178,7 @@ XRP: rUstbo3nmsBc8Ux5neYdQVgpLKRpShxX86
 ETH: 0xD8785350A58BEB65D490a68e1c271748e70a30cE
 }
 
-set iconfile [ipgui::find_file [ipgui::get_coredir] "data/wallets.png"]
-set image [ipgui::add_image -width 635 -height 225 -parent ${About} -name $iconfile $IPINST]
-set_property load_image $iconfile $image
+
 
 }
 
