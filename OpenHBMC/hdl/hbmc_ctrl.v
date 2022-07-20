@@ -81,6 +81,9 @@ module hbmc_ctrl #
     input   wire    [1:0]   dfifo_strb,         // Downstream FIFO data byte enable strobes
     output  wire            dfifo_re,           // Downstream FIFO read enable
     
+    //MHG_Debug
+    output  wire    [3:0]   od_state,
+    
     output  wire            hb_ck_p,
     output  wire            hb_ck_n,
     output  wire            hb_reset_n,
@@ -1053,6 +1056,10 @@ module hbmc_ctrl #
         .I  ( cs_n    ),
         .O  ( hb_cs_n )
     );
+    
+/*----------------------------------------------------------------------------------------------------------------------------*/
+    
+    assign od_state = state;
     
 endmodule
 

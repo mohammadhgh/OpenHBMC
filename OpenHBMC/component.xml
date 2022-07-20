@@ -531,7 +531,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>561cea8e</spirit:value>
+            <spirit:value>8064c57d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -556,7 +556,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2a1169fe</spirit:value>
+            <spirit:value>743cd1cd</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1481,6 +1481,40 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
+        <spirit:name>od_state</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>od_state_ctrl</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">3</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
         <spirit:name>hb_ck_p</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
@@ -1907,27 +1941,27 @@
       <spirit:file>
         <spirit:name>hdl/ip/fifo_72b_18b_512w/fifo_72b_18b_512w.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_hbmc_dfifo_inst/fifo_72b_18b_512w/fifo_72b_18b_512w</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_hbmc_dfifo_inst/fifo_72b_18b_512w</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/ip/fifo_18b_18b_512w/fifo_18b_18b_512w.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_hbmc_ufifo_inst/fifo_18b_18b_512w/fifo_18b_18b_512w</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_hbmc_ufifo_inst/fifo_18b_18b_512w</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/ip/fifo_36b_18b_512w/fifo_36b_18b_512w.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_hbmc_dfifo_inst/dFIFO_36b_18b_512w.fifo_36b_18b_512w_inst/fifo_36b_18b_512w</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_hbmc_dfifo_inst/dFIFO_36b_18b_512w.fifo_36b_18b_512w_inst</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/ip/fifo_18b_72b_512w/fifo_18b_72b_512w.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_hbmc_ufifo_inst/fifo_18b_72b_512w/fifo_18b_72b_512w</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_hbmc_ufifo_inst/fifo_18b_72b_512w</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/ip/fifo_18b_36b_512w/fifo_18b_36b_512w.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_hbmc_ufifo_inst/uFIFO_18b_36b_512w.fifo_18b_36b_512w_inst/fifo_18b_36b_512w</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_hbmc_ufifo_inst/uFIFO_18b_36b_512w.fifo_18b_36b_512w_inst</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/hbmc_arst_sync.v</spirit:name>
@@ -1972,7 +2006,7 @@
       <spirit:file>
         <spirit:name>hdl/hbmc_axi_top.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_b45dc897</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_0ab5b17a</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -2010,27 +2044,27 @@
       <spirit:file>
         <spirit:name>hdl/ip/fifo_72b_18b_512w/fifo_72b_18b_512w.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_hbmc_dfifo_inst/fifo_72b_18b_512w/fifo_72b_18b_512w</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_hbmc_dfifo_inst/fifo_72b_18b_512w</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/ip/fifo_18b_18b_512w/fifo_18b_18b_512w.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_hbmc_ufifo_inst/fifo_18b_18b_512w/fifo_18b_18b_512w</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_hbmc_ufifo_inst/fifo_18b_18b_512w</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/ip/fifo_36b_18b_512w/fifo_36b_18b_512w.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_hbmc_dfifo_inst/dFIFO_36b_18b_512w.fifo_36b_18b_512w_inst/fifo_36b_18b_512w</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_hbmc_dfifo_inst/dFIFO_36b_18b_512w.fifo_36b_18b_512w_inst</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/ip/fifo_18b_72b_512w/fifo_18b_72b_512w.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_hbmc_ufifo_inst/fifo_18b_72b_512w/fifo_18b_72b_512w</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_hbmc_ufifo_inst/fifo_18b_72b_512w</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/ip/fifo_18b_36b_512w/fifo_18b_36b_512w.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_hbmc_ufifo_inst/uFIFO_18b_36b_512w.fifo_18b_36b_512w_inst/fifo_18b_36b_512w</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_hbmc_ufifo_inst/uFIFO_18b_36b_512w.fifo_18b_36b_512w_inst</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/hbmc_arst_sync.v</spirit:name>
@@ -2425,18 +2459,18 @@
       </xilinx:xpmLibraries>
       <xilinx:vendorDisplayName>OVGN</xilinx:vendorDisplayName>
       <xilinx:vendorURL>https://github.com/OVGN/OpenHBMC</xilinx:vendorURL>
-      <xilinx:coreRevision>84</xilinx:coreRevision>
+      <xilinx:coreRevision>86</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>xilinx.com:user:OpenHBMC:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2022-06-01T08:56:26Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-07-20T15:08:10Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2022.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="784528ef"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="96ea5e8c"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ca142db4"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="90ca30e1"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="2e280e6f"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="c7f55149"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="0de667aa"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="b79447e4"/>
     </xilinx:packagingInfo>
