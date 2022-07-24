@@ -134,6 +134,13 @@ module hbmc_axi_top #
     /* Debug ports from MHG*/
     output  wire    [1:0]                       od_state,
     output  wire    [3:0]                       od_state_ctrl,
+    output  wire                                od_ufifo_wr_last,
+    output  wire                                od_ufifo_rd_last,
+    output  wire    [5:0]                       od_rwds_iserdes,
+    output  wire                                od_hb_recov_data_vld,
+    output  wire                                od_rwds_t,
+    output  wire    [1:0]                       od_rwds_sdr_i,
+    output  wire                                od_rwds_imm,
 
     /* HyperBus Interface Port */
     output  wire                                hb_ck_p,
@@ -642,6 +649,11 @@ module hbmc_axi_top #
         
         //MHG
         .od_state           ( od_state_ctrl         ),
+        .od_rwds_iserdes    ( od_rwds_iserdes       ),
+        .od_hb_recov_data_vld ( od_hb_recov_data_vld),
+        .od_rwds_t          ( od_rwds_t             ),
+        .od_rwds_sdr_i      ( od_rwds_sdr_i         ),
+        .od_rwds_imm        ( od_rwds_imm           ),
                 
         .hb_ck_p            ( hb_ck_p               ),
         .hb_ck_n            ( hb_ck_n               ),
@@ -703,7 +715,9 @@ module hbmc_axi_top #
 /*----------------------------------------------------------------------------------------------------------------------------*/
 
 /* Debug ports assignment */
-    assign od_state = state;
+    assign  od_state         = state;
+    assign  od_ufifo_wr_last = ufifo_wr_last;
+    assign  od_ufifo_rd_last = ufifo_rd_last;
     
 endmodule
 

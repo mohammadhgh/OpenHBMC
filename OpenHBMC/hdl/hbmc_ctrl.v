@@ -83,6 +83,11 @@ module hbmc_ctrl #
     
     //MHG_Debug
     output  wire    [3:0]   od_state,
+    output  wire    [5:0]   od_rwds_iserdes,
+    output  wire            od_hb_recov_data_vld,
+    output  wire            od_rwds_t,
+    output  wire    [1:0]   od_rwds_sdr_i,
+    output  wire            od_rwds_imm,
     
     output  wire            hb_ck_p,
     output  wire            hb_ck_n,
@@ -1058,8 +1063,13 @@ module hbmc_ctrl #
     );
     
 /*----------------------------------------------------------------------------------------------------------------------------*/
-    
-    assign od_state = state;
+    //MHG_Debug
+    assign  od_state                =   state;
+    assign  od_hb_recov_data_vld    =   hb_recov_data_vld;
+    assign  od_rwds_iserdes         =   rwds_iserdes;
+    assign  od_rwds_t               =   rwds_t;
+    assign  od_rwds_sdr_i           =   rwds_sdr_i;
+    assign  od_rwds_imm             =   rwds_imm;
     
 endmodule
 
