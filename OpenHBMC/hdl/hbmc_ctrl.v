@@ -88,6 +88,9 @@ module hbmc_ctrl #
     output  wire            od_rwds_t,
     output  wire    [1:0]   od_rwds_sdr_i,
     output  wire            od_rwds_imm,
+    output  wire    [3:0]   od_rd_state,
+    output  wire            od_dru_iserdes_rst,
+    output  wire    [5:0]   od_iserdes_q,
     
     output  wire            hb_ck_p,
     output  wire            hb_ck_n,
@@ -409,6 +412,9 @@ module hbmc_ctrl #
         .iserdes_clk    ( iserdes_clk_iobuf ),
         .iserdes_clkdiv ( iserdes_clkdiv    ),
         .idelay_clk     ( clk_idelay_ref    ),
+
+        //MHG_Debug
+        .od_iserdes_q   ( od_iserdes_q      ),
         
         .buf_io         ( hb_rwds           ),
         .buf_t          ( rwds_t            ),
@@ -459,6 +465,9 @@ module hbmc_ctrl #
                 .iserdes_clk    ( iserdes_clk_iobuf               ),
                 .iserdes_clkdiv ( iserdes_clkdiv                  ),
                 .idelay_clk     ( clk_idelay_ref                  ),
+
+                //MHG_Debug
+                .od_iserdes_q   ( /*------------NC------------*/  ),
                 
                 .buf_io         ( hb_dq[i]                        ),
                 .buf_t          ( dq_t[i]                         ),
@@ -1070,6 +1079,8 @@ module hbmc_ctrl #
     assign  od_rwds_t               =   rwds_t;
     assign  od_rwds_sdr_i           =   rwds_sdr_i;
     assign  od_rwds_imm             =   rwds_imm;
+    assign  od_rd_state             =   rd_state;
+    assign  od_dru_iserdes_rst      =   dru_iserdes_rst;
     
 endmodule
 
