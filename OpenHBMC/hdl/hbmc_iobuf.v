@@ -59,10 +59,8 @@ module hbmc_iobuf #
     wire    [5:0]   iserdes_q;
     wire            iserdes_ddly;
 
-    //MHG
-    reg             arst_reg0;
-    reg             arst_reg1;
-    wire            iserdes_o_invalid;
+    reg             arst_shift_reg      [0:1];
+    wire            iserdes_q_invalid;
     
     
 /*----------------------------------------------------------------------------------------------------------------------------*/
@@ -232,20 +230,20 @@ module hbmc_iobuf #
 /*----------------------------------------------------------------------------------------------------------------------------*/
 
     /* ISERDESE2 reset extender 
-     * According to UG471, ISERDESE2 output is invalid for two clock cycles after reset deassertion
+     * According to UG471, ISERDESE2 output is invalid for two clock cycles after reset deassertion.
      */
 
     always @(posedge iserdes_clkdiv or posedge arst) begin
         if (arst) begin
-            arst_reg0 <= 1'd1;
-            arst_reg1 <= 1'd1;
+            arst_shift_reg[0] <= 1'd1;
+            arst_shift_reg[1] <= 1'd1;
         end else begin
-            arst_reg0 <= 1'd0;
-            arst_reg1 <= arst_reg0;
+            arst_shift_reg[0] <= 1'd0;
+            arst_shift_reg[1] <= arst_shift_reg[0];
         end
     end
 
-    assign  iserdes_o_invalid = arst_reg1;
+    assign  iserdes_q_invalid = arst_shift_reg[1];
 
 /*----------------------------------------------------------------------------------------------------------------------------*/
     
@@ -253,10 +251,12 @@ module hbmc_iobuf #
     always @(posedge iserdes_clkdiv or posedge arst) begin
         if (arst) begin
             iserdes_o <= {6{1'b0}};
-        end else if (iserdes_o_invalid) begin
-            iserdes_o <= {6{1'b0}};
         end else begin
-            iserdes_o <= iserdes_q;
+            if (iserdes_q_invalid) begin
+                iserdes_o <= {6{1'b0}};
+            end else begin
+                iserdes_o <= iserdes_q;
+            end
         end
     end
 
