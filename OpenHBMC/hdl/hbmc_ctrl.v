@@ -81,17 +81,6 @@ module hbmc_ctrl #
     input   wire    [1:0]   dfifo_strb,         // Downstream FIFO data byte enable strobes
     output  wire            dfifo_re,           // Downstream FIFO read enable
     
-    //MHG_Debug
-    output  wire    [3:0]   od_state,
-    output  wire    [5:0]   od_rwds_iserdes,
-    output  wire            od_hb_recov_data_vld,
-    output  wire            od_rwds_t,
-    output  wire    [1:0]   od_rwds_sdr_i,
-    output  wire            od_rwds_imm,
-    output  wire    [3:0]   od_rd_state,
-    output  wire            od_dru_iserdes_rst,
-    output  wire    [5:0]   od_iserdes_q,
-    
     output  wire            hb_ck_p,
     output  wire            hb_ck_n,
     output  wire            hb_reset_n,
@@ -412,9 +401,6 @@ module hbmc_ctrl #
         .iserdes_clk    ( iserdes_clk_iobuf ),
         .iserdes_clkdiv ( iserdes_clkdiv    ),
         .idelay_clk     ( clk_idelay_ref    ),
-
-        //MHG_Debug
-        .od_iserdes_q   ( od_iserdes_q      ),
         
         .buf_io         ( hb_rwds           ),
         .buf_t          ( rwds_t            ),
@@ -465,9 +451,6 @@ module hbmc_ctrl #
                 .iserdes_clk    ( iserdes_clk_iobuf               ),
                 .iserdes_clkdiv ( iserdes_clkdiv                  ),
                 .idelay_clk     ( clk_idelay_ref                  ),
-
-                //MHG_Debug
-                .od_iserdes_q   ( /*------------NC------------*/  ),
                 
                 .buf_io         ( hb_dq[i]                        ),
                 .buf_t          ( dq_t[i]                         ),
@@ -1070,17 +1053,6 @@ module hbmc_ctrl #
         .I  ( cs_n    ),
         .O  ( hb_cs_n )
     );
-    
-/*----------------------------------------------------------------------------------------------------------------------------*/
-    //MHG_Debug
-    assign  od_state                =   state;
-    assign  od_hb_recov_data_vld    =   hb_recov_data_vld;
-    assign  od_rwds_iserdes         =   rwds_iserdes;
-    assign  od_rwds_t               =   rwds_t;
-    assign  od_rwds_sdr_i           =   rwds_sdr_i;
-    assign  od_rwds_imm             =   rwds_imm;
-    assign  od_rd_state             =   rd_state;
-    assign  od_dru_iserdes_rst      =   dru_iserdes_rst;
     
 endmodule
 

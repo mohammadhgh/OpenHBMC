@@ -40,9 +40,6 @@ module hbmc_iobuf #
     input   wire            iserdes_clk,
     input   wire            iserdes_clkdiv,
     input   wire            idelay_clk,
-
-    //MHG
-    output  wire    [5:0]   od_iserdes_q,
     
     inout   wire            buf_io,
     input   wire            buf_t,
@@ -259,9 +256,6 @@ module hbmc_iobuf #
             end
         end
     end
-
-    //MHG_Debug
-    assign  od_iserdes_q = iserdes_q;
     
 endmodule
 
