@@ -55,6 +55,9 @@ module hbmc_iobuf #
     wire            iserdes_d;
     wire    [5:0]   iserdes_q;
     wire            iserdes_ddly;
+
+    reg             arst_shift_reg      [0:1];
+    wire            iserdes_q_invalid;
     
     
 /*----------------------------------------------------------------------------------------------------------------------------*/
@@ -222,13 +225,35 @@ module hbmc_iobuf #
     );
     
 /*----------------------------------------------------------------------------------------------------------------------------*/
+
+    /* ISERDESE2 reset extender 
+     * According to UG471, ISERDESE2 output is invalid for two clock cycles after reset deassertion.
+     */
+
+    always @(posedge iserdes_clkdiv or posedge arst) begin
+        if (arst) begin
+            arst_shift_reg[0] <= 1'd1;
+            arst_shift_reg[1] <= 1'd1;
+        end else begin
+            arst_shift_reg[0] <= 1'd0;
+            arst_shift_reg[1] <= arst_shift_reg[0];
+        end
+    end
+
+    assign  iserdes_q_invalid = arst_shift_reg[1];
+
+/*----------------------------------------------------------------------------------------------------------------------------*/
     
     /* Register ISERDESE2 output */
     always @(posedge iserdes_clkdiv or posedge arst) begin
         if (arst) begin
             iserdes_o <= {6{1'b0}};
         end else begin
-            iserdes_o <= iserdes_q;
+            if (iserdes_q_invalid) begin
+                iserdes_o <= {6{1'b0}};
+            end else begin
+                iserdes_o <= iserdes_q;
+            end
         end
     end
     
