@@ -89,8 +89,10 @@ module hbmc_ctrl #
     output  wire    [1:0]   od_rwds_sdr_i,
     output  wire            od_rwds_imm,
     output  wire    [3:0]   od_rd_state,
+    output  wire    [3:0]   od_wr_state,
     output  wire            od_dru_iserdes_rst,
     output  wire    [5:0]   od_iserdes_q,
+    output  wire    [15:0]  od_hram_id_reg,
     
     output  wire            hb_ck_p,
     output  wire            hb_ck_n,
@@ -852,20 +854,20 @@ module hbmc_ctrl #
                 
                 ST_SETUP_CR1: begin
                     wr_reg(CA_WR | CA_REG_SPACE | CA_BURST_LINEAR | CR1_REG_ADDR, cr1_reg);
-                    state <= (wr_done)? ST_IDLE : state;
+                    state <= (wr_done)? ST_READ_ID0 : state;
                 end
                 
                 
-                // ST_READ_ID0: begin
-                //     rd_reg(CA_RD | CA_REG_SPACE | CA_BURST_LINEAR | ID0_REG_ADDR, hram_id_reg);
-                //     state <= (rd_done)? ST_READ_ID1 : state;
-                // end
-                // 
-                // 
-                // ST_READ_ID1: begin
-                //     rd_reg(CA_RD | CA_REG_SPACE | CA_BURST_LINEAR | ID1_REG_ADDR, hram_id_reg);
-                //     state <= (rd_done)? ST_IDLE : state;
-                // end
+                ST_READ_ID0: begin
+                    rd_reg(CA_RD | CA_REG_SPACE | CA_BURST_LINEAR | ID0_REG_ADDR, hram_id_reg);
+                    state <= (rd_done)? ST_READ_ID1 : state;
+                end
+                
+                
+                ST_READ_ID1: begin
+                    rd_reg(CA_RD | CA_REG_SPACE | CA_BURST_LINEAR | ID1_REG_ADDR, hram_id_reg);
+                    state <= (rd_done)? ST_IDLE : state;
+                end
                 
                 
                 ST_IDLE: begin
@@ -1080,7 +1082,9 @@ module hbmc_ctrl #
     assign  od_rwds_sdr_i           =   rwds_sdr_i;
     assign  od_rwds_imm             =   rwds_imm;
     assign  od_rd_state             =   rd_state;
+    assign  od_wr_state             =   wr_state;
     assign  od_dru_iserdes_rst      =   dru_iserdes_rst;
+    assign  od_hram_id_reg          =   hram_id_reg;
     
 endmodule
 

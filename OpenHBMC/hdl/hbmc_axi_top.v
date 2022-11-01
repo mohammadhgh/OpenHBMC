@@ -142,8 +142,10 @@ module hbmc_axi_top #
     output  wire    [1:0]                       od_rwds_sdr_i,
     output  wire                                od_rwds_imm,
     output  wire    [3:0]                       od_rd_state,
+    output  wire    [3:0]                       od_wr_state,
     output  wire                                od_dru_iserdes_rst,
     output  wire    [5:0]                       od_iserdes_q,
+    output  wire    [15:0]                      od_hram_id_reg,
 
     /* HyperBus Interface Port */
     output  wire                                hb_ck_p,
@@ -658,8 +660,10 @@ module hbmc_axi_top #
         .od_rwds_sdr_i      ( od_rwds_sdr_i         ),
         .od_rwds_imm        ( od_rwds_imm           ),
         .od_rd_state        ( od_rd_state           ),
+        .od_wr_state        ( od_wr_state           ),
         .od_dru_iserdes_rst ( od_dru_iserdes_rst    ),
         .od_iserdes_q       ( od_iserdes_q          ),
+        .od_hram_id_reg     ( od_hram_id_reg        ),
                 
         .hb_ck_p            ( hb_ck_p               ),
         .hb_ck_n            ( hb_ck_n               ),
