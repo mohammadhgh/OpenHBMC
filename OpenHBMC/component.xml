@@ -531,7 +531,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>e4954a36</spirit:value>
+            <spirit:value>8d25f453</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -556,7 +556,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>90dda85a</spirit:value>
+            <spirit:value>7279a288</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2425,17 +2425,17 @@
       </xilinx:xpmLibraries>
       <xilinx:vendorDisplayName>OVGN</xilinx:vendorDisplayName>
       <xilinx:vendorURL>https://github.com/OVGN/OpenHBMC</xilinx:vendorURL>
-      <xilinx:coreRevision>100</xilinx:coreRevision>
+      <xilinx:coreRevision>101</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>xilinx.com:user:OpenHBMC:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2023-08-20T11:19:51Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2023-12-06T13:53:03Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2023.1</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2023.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="784528ef"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="96ea5e8c"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="94e286e7"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="9fe179e8"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="90ca30e1"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="0de667aa"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="b79447e4"/>
